@@ -8,6 +8,7 @@ from zombie import Zombie
 import random
 
 boy = None
+zombie = []
 
 
 def handle_events():
@@ -30,8 +31,10 @@ def init():
     # 객체들을 생성
     boy = Boy()
     grass = Grass()
-    global balls
+    global balls, zombies
+
     balls = [Ball(random.randint(100, 1500), 60, 0) for _ in range(30)]
+
 
     # 생성된 객체들을 game_world에 등록
     game_world.add_oject(boy)
