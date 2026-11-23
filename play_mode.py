@@ -26,12 +26,12 @@ def handle_events():
 
 
 def init():
-    global boy
+    global boy, zombies
 
     # 객체들을 생성
     boy = Boy()
     grass = Grass()
-    global balls, zombies
+    global balls
 
     balls = [Ball(random.randint(100, 1500), 60, 0) for _ in range(30)]
 
@@ -52,7 +52,7 @@ def init():
     game_world.add_collision_pairs("boy:zombie", boy, None)
     for zombie in zombies:
         game_world.add_collision_pairs("boy:zombie", None, zombie)
-
+        game_world.add_collision_pairs("ball:zombie", None, zombie)
 
 
 def pause():
